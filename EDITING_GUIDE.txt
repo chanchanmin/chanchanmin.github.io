@@ -1,0 +1,40 @@
+CHANMIN KIM PORTFOLIO — EASY EDIT VERSION
+
+1. Open index.html in a browser to preview the site.
+2. Open index.html in a text editor (VS Code, CotEditor, TextEdit in plain-text mode, etc.).
+3. The large "WORKS / PROJECTS" section is the only place you normally need to edit for works.
+4. Put your real images inside the images folder.
+5. Replace:
+      ["images/placeholder-1.svg", "Work image 01"]
+   with:
+      ["images/my-photo.jpg", "Installation view"]
+
+ADDING A NEW WORK
+
+A. Add a menu button in the appropriate category:
+   <button class="work-link" data-work="myNewWork">
+     My New Work
+   </button>
+
+B. Add this to the WORKS section:
+   myNewWork: {
+     title: "My New Work",
+     meta: "video<br>2026",
+     description: "My description.",
+     slides: [
+       ["images/myNewWork01.jpg", "Image 01"],
+       ["images/myNewWork02.jpg", "Image 02"]
+     ]
+   },
+
+C. Add "myNewWork" to workOrder if you want it included in
+   the previous/next work navigation.
+
+IMPORTANT:
+The ID must be identical in all three places:
+- data-work="myNewWork"
+- myNewWork: { ... }
+- "myNewWork" in workOrder
+
+The current version also uses a white background and
+Helvetica Neue with Helvetica/Arial fallbacks.

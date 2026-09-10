@@ -1,0 +1,943 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./font/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e3e3dc5a;
+  color: #171717;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  line-height: 1.25;
+  font-size: 15px;
+}
+
+:root {
+  --sidebar-left: 30px;
+  --sidebar-width: 225px;
+  --sidebar-gap: 50px;
+  --font-body: 14px;
+  --font-menu: 16px;
+  --font-title: 19px;
+  --font-submenu: 14px;
+  --font-small: 12px;
+}
+
+button {
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.25s ease,
+              background-color 0.25s ease,
+              opacity 0.25s ease;
+}
+
+/* =========================================================
+   UPCOMING
+   ========================================================= */
+
+.top-menu {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  display: block;
+  text-align: left;
+  width: 130%;
+  font-size: 16px;
+  color: #000;
+}
+
+.top-menu button {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.top-menu button {
+  color: #000000;
+  transition: color 0.25s ease;
+}
+
+.top-menu button:hover {
+  color: #5049ca;
+}
+
+/* Hide work-only elements on Upcoming */
+
+body.biography-mode .additional-info {
+  display: none;
+}
+
+body.biography-mode .work-footer {
+  display: none;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  position: fixed;
+  left: var(--sidebar-left);
+  top: 30px;
+
+  width: 320px;
+  max-height: calc(100vh - 60px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  z-index: 10;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.site-title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+nav {
+  width: 320px;
+}
+
+.menu-main {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 350;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0 0 0;
+  font-size: 16px;
+  color: #000;
+  transition: color 0.25s ease;
+}
+
+.menu-main:hover,
+.menu-main.active {
+  color: #5049ca;
+}
+
+.submenu {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  display: none;
+  padding: 1px 0 10px;
+  text-align: right;
+  width: 100%;
+}
+
+.submenu.open {
+  display: block !important;
+}
+
+.work-link {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 14px;
+  color: #b4b4b4;
+  display: block;
+  width: 100%;
+  text-align: left;
+  line-height: 1.35;
+  margin: 0 20px;
+  transition: color 0.25s ease,
+              padding-left 0.25s ease;
+}
+
+.work-link:hover {
+  color: #5049ca;
+  padding-left: 20px;
+}
+
+.work-link.active {
+  color: #000;
+}
+
+.bottom-menu {
+  margin-top: 15px;
+  transition: color 0.25s ease
+}
+
+.bottom-menu:hover {
+  color: #5049ca;
+}
+
+.bottom-menu button {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 350;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 3px;
+  text-align: left;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.content {
+  margin-left: calc(var(--sidebar-left) + var(--sidebar-width) + var(--sidebar-gap) + 20px);
+
+  padding: 30px 34px 50px 0;
+  min-height: 100vh;
+}
+
+.work {
+  width: min(1000px, calc(100vw - 350px));
+  margin: 0;
+}
+
+
+/* =========================================================
+   IMAGE AREA
+   ========================================================= */
+
+.media-wrap {
+  width: 100%;
+  position: relative;
+  margin-left: 0;
+}
+
+.media-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  background: none;
+}
+
+.media-stage img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center center;
+
+  display: block;
+}
+
+
+/* =========================================================
+   IMAGE CAPTION
+   ========================================================= */
+
+.caption {
+  position: absolute;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  color: #777;
+  font-size: 12px;
+  line-height: 1.25;
+
+  margin: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  pointer-events: none;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  text-align: right;
+
+  bottom: -18px;
+  left: 0;
+}
+
+/* =========================================================
+   SLIDER CONTROLS
+   ========================================================= */
+
+.slider-controls {
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c6c6c6;
+  gap: 25px;
+}
+
+.slider-controls button {
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+
+  transition: color 0.25s ease;
+}
+
+.slider-controls button:hover {
+  color: #000;
+}
+
+.slider-controls button:focus {
+  outline: none;
+}
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #c6c6c6 !important;
+  cursor: pointer;
+  
+}
+
+.dot:hover {
+  background-color: #000 !important;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active {
+  background-color: #000 !important;
+}
+
+/* =========================================================
+   WORK INFORMATION
+   ========================================================= */
+
+.work-info {
+  color: #444;
+  max-width: 1000px;
+  margin: 20px 0 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+
+}
+
+.work-info h1 {
+  color: #000;
+  font-size: 20px;
+  margin: 20px 20px 0px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 700;
+}
+
+.work-info-line {
+  color: #777;
+  font-size: 14px;
+  margin: 3px 20px 20px;
+
+}
+
+/* =========================================================
+   THREE COLUMN INFORMATION
+   ========================================================= */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1.7fr 0.65fr 0.65fr;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* WIDER LEFT COLUMN FOR UPCOMING / BIOGRAPHY / IMPRINT */
+
+body.upcoming-mode .columns,
+body.biography-mode .columns,
+body.imprint-mode .columns {
+  grid-template-columns: 2fr 0.5fr 0.5fr;
+}
+
+
+/* LEFT COLUMN */
+
+.description {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  max-width: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: justify;
+  line-height: 1.25;
+  margin: 0;
+}
+
+
+/* MIDDLE COLUMN */
+
+.credits-column {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+
+/* RIGHT COLUMN */
+
+.screening-column {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  padding-right: 20px;
+}
+
+
+/* INFO SECTION */
+
+.info-section {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-right: 0;
+}
+
+.info-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.info-title span {
+  font-size: 14px;
+}
+
+.info-content {
+  display: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  color: #000;
+  line-height: 1.25;
+  padding-top: 3px;
+}
+
+.info-content.open {
+  display: block;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT WORK
+   ========================================================= */
+
+.work-footer {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  width: 100%;
+  max-width: none;
+  margin: 150px 0;
+  display: flex;
+  justify-content: space-between;
+  color: #bebebe;
+  transition: color 0.25s ease;
+}
+
+.work-footer button:hover {
+  color: #000;
+  transition: color 0.25s ease;
+}
+
+/* =========================================================
+   BOTTOM MENU
+   ========================================================= */
+
+.bottom-menu button {
+  color: #000000;
+  transition: color 0.25s ease;
+}
+
+.bottom-menu button:hover {
+  color: #5049ca;
+}
+
+/* Hide work-only elements on Biography */
+
+body.biography-mode .additional-info {
+  display: none;
+}
+
+body.biography-mode .work-footer {
+  display: none;
+}
+
+/* =========================================================
+   BIOGRAPHY / IMPRINT LAYOUT
+   ========================================================= */
+
+body.biography-mode .media-wrap {
+  display: none;
+}
+
+body.biography-mode .slider-controls {
+  display: none;
+}
+
+body.biography-mode .work-info {
+  margin-top: 54px;
+  padding-top: 0;
+}
+
+body.biography-mode .work-info h1 {
+  margin-top: 0;
+}
+
+/* =========================================================
+   BIOGRAPHY
+   ========================================================= */
+
+.bio-text {
+  margin-bottom: 30px;
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.bio-text p {
+  margin: 0 0 24px 0;
+}
+
+
+/* BIOGRAPHY SECTION TITLES */
+
+
+.bio-screening-title {
+  margin-bottom: 10px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+
+.screening-row {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 40px;
+  margin-bottom: 8px;
+}
+
+.screening-year {
+  text-align: left;
+}
+
+.screening-list>div {
+  position: relative;
+  margin-bottom: 5px;
+  padding-left: 14px;
+}
+
+.screening-list>div::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.copyright {
+  margin: 25px 0 0;
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.25;
+}
+
+/* ==========================================================
+   EVENT GRID
+   ========================================================== */
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 13px;
+  width: 85%;
+  align-items: start;
+}
+
+
+/* ==========================================================
+   EVENT CARD
+   ========================================================== */
+
+.event-card {
+  background: #ffffff;
+  padding: 40px;
+  min-width: 0;
+}
+
+.event-card.no-image {
+  display: block;
+}
+
+/* ==========================================================
+   EVENT TITLE
+   ========================================================== */
+
+.event-year {
+  text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 0px 0 25px;
+  color: #000000;
+}
+
+
+/* ==========================================================
+   EVENT IMAGE
+   ========================================================== */
+
+.event-image {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.event-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ==========================================================
+   EVENT DESCRIPTION
+   ========================================================== */
+
+.event-description {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000000;
+  text-align: left;
+}
+
+.event-description .event-date {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  line-height: 1.2;
+  color: #aaa;
+}
+
+.event-place {
+  font-family: "Inter", Arial, sans-serif;
+  color: #aaa;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.event-work {
+  line-height: 1.2;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* ==========================================================
+   EVENT LINK
+   ========================================================== */
+
+.event-description a {
+  display: block;
+  text-align: right;
+  color: #5049ca;
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.event-description a:hover {
+  text-decoration: none;
+  color: #aaa;
+}
+
+
+/* =========================================================
+   TEXT PAGE
+   ========================================================= */
+
+.text-page-link {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* TEXTS main menu */
+.menu-main.active-page {
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 15px;
+}
+
+/* EVENTS / BIOGRAPHY / IMPRINT */
+.text-page-back,
+.text-page-back:visited,
+.bottom-link,
+.bottom-link:visited {
+  color: #000;
+  text-decoration: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 250;
+  font-size: 15px;
+  transition: color 0.25s ease;
+}
+
+.text-page-back:hover,
+.bottom-link:hover {
+  color: #5049ca;
+  text-decoration: none;
+}
+
+/* Text content */
+.text-content {
+  width: 100%;
+}
+
+.text-content h1 {
+  margin: 0 0 10px 0;
+}
+
+.text-meta {
+  margin-bottom: 30px;
+}
+
+.text-body {
+  line-height: 1.25;
+}
+
+.work-link {
+  color: #adadad;
+  text-decoration: none !important;
+}
+
+.work-link:hover {
+  text-decoration: none !important;
+}
+
+.crossword-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: left;
+  gap: 20px;
+  width: 100%;
+}
+
+.site-title,
+.site-title:visited,
+.site-title:hover,
+.site-title:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.home-page #screeningToggle,
+body.home-page #workScreening,
+body.home-page #creditsToggle,
+body.home-page #workCredits,
+body.home-page .work-footer {
+  display: none !important;
+}
+
+
+
+
+
+
+
+/* =========================================================
+   SMALLER SCREEN
+   ========================================================= */
+
+@media screen and (max-width: 1600px) {
+
+  :root {
+    --font-body: 13px;
+    --font-menu: 15px;
+    --font-title: 18px;
+    --font-submenu: 13px;
+    --font-small: 12px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .menu-main {
+    font-size: 15px;
+  }
+
+  .top-menu {
+    font-size: 15px;
+  }
+
+  .bottom-menu button {
+    font-size: 15px;
+  }
+
+  .work-link {
+    font-size: 13px;
+  }
+
+  .work-info h1 {
+    font-size: 18px;
+  }
+
+  .work-info-line {
+    font-size: 13px;
+  }
+
+  .description,
+  .credits-column,
+  .credits-column *,
+  .screening-column {
+    font-size: 13px;
+  }
+
+  .info-section,
+  .info-title,
+  .info-content {
+    font-size: 12px;
+  }
+
+  .info-title span {
+  font-size: 12px;
+}
+
+  .text-page-back,
+  .bottom-link {
+    font-size: 12px;
+  }
+
+  .event-description,
+  .event-description .event-date,
+  .event-place,
+  .event-work {
+    font-size: 13px;
+  }
+
+  .sidebar {
+    left: 30px;
+    width: 320px;
+  }
+
+  .work {
+    width: 90%;
+    max-width: 850px;
+  }
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .credits-column,
+  .screening-column {
+    padding-right: 20px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .event-card {
+    padding: 14px;
+  }
+
+  .event-year {
+    font-size: 20px;
+  }
+
+}
