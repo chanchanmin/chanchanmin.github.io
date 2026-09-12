@@ -278,7 +278,7 @@ nav {
   font-weight: 300;
   text-align: right;
 
-  bottom: -18px;
+  bottom: -20px;
   left: 0;
 }
 
@@ -472,6 +472,11 @@ body.imprint-mode .columns {
 
 .info-content.open {
   display: block;
+}
+
+/* MOVE CREDITS TO THE RIGHT WHEN SCREENING IS HIDDEN */
+.columns.screening-hidden .credits-column {
+  grid-column: 3;
 }
 
 
@@ -940,4 +945,27 @@ body.home-page .work-footer {
     font-size: 20px;
   }
 
+}
+
+.description a {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.description a:hover {
+  text-decoration: none;
+  color: #aaa;
+}
+
+.credits-column a {
+  color: #5049ca;
+  text-decoration: none !important;
+  transition: color 0.25s ease;
+}
+
+.credits-column a:hover {
+  color: #aaa !important;
+  text-decoration: none !important;
 }
