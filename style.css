@@ -95,6 +95,10 @@ body.biography-mode .work-footer {
   display: none;
 }
 
+body.biography-mode .credits-column,
+body.biography-mode .screening-column {
+  display: none;
+}
 
 /* =========================================================
    SIDEBAR
@@ -989,4 +993,5 @@ body.home-page .work-footer {
   83%  { color: hsl(300, 100%, 50%); }
   100% { color: hsl(360, 100%, 50%); }
 }
+
 

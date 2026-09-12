@@ -56,7 +56,7 @@
           <!-- WORK LINK
              data-work MUST match the name in the WORKS section. -->
 
-          <button class="work-link" data-work="salvation">
+          <button class="work-link" data-work=>
             To Salvation
           </button>
 
@@ -190,7 +190,7 @@
 
         <!-- ================= TEXTS ================= -->
 
-        <button class="menu-main" data-menu="text">
+        <button class="menu-main" data-menu="text""">
           TEXTS
         </button>
 
@@ -2088,7 +2088,7 @@
        ============================================================= */
 
     function clearSidebarActive() {
-
+document.body.classList.remove("biography-mode");
       document.querySelectorAll(
         ".menu-main, .work-link, #upcomingButton, #biographyButton, #imprintButton"
       ).forEach(button => {
@@ -2333,7 +2333,7 @@
 
     $("mediaImage").addEventListener("load", positionCaption);
     window.addEventListener("resize", positionCaption);
-    
+
     function showHomePage() {
       $("constructionMessage").style.display = "block";
       document.querySelector(".media-wrap").style.display = "none";
@@ -2588,43 +2588,30 @@
 
     $("upcomingButton").onclick = () => {
 
-      localStorage.setItem("currentPage", "upcoming");
+      $("constructionMessage").style.display = "none";
+      document.querySelector(".media-wrap").style.display = "none";
 
+      localStorage.setItem("currentPage", "upcoming");
       clearSidebarActive();
 
-
-
       $("upcomingButton").classList.add("active");
-
       document.body.classList.add("biography-mode");
 
       currentWork = "upcoming";
       currentSlide = 0;
 
       const w = works.upcoming;
-
       $("workTitle").textContent = "";
-
       $("workInfo").innerHTML = "";
-
       $("workDescription").innerHTML = w.description;
-
       $("workScreening").innerHTML = "";
-
       $("workCredits").innerHTML = "";
-
       $("mediaImage").src = "";
-
       $("mediaImage").alt = "";
-
       $("caption").textContent = "";
-
       $("dots").innerHTML = "";
-
       $("prevWork").querySelector("span").textContent = "";
-
       $("nextWork").querySelector("span").textContent = "";
-
     };
 
     /* =============================================================
@@ -2633,43 +2620,30 @@
 
     $("biographyButton").onclick = () => {
 
-      localStorage.setItem("currentPage", "biography");
+      $("constructionMessage").style.display = "none";
+      document.querySelector(".media-wrap").style.display = "none";
 
+      localStorage.setItem("currentPage", "biography");
       clearSidebarActive();
 
-
       $("biographyButton").classList.add("active");
-
       document.body.classList.add("biography-mode");
 
       currentWork = "biography";
-
       currentSlide = 0;
 
       const w = works.biography;
-
       $("workTitle").textContent = w.title;
-
       $("workInfo").innerHTML = "";
-
       $("workDescription").innerHTML = w.description;
-
       $("workScreening").innerHTML = "";
-
       $("workCredits").innerHTML = "";
-
       $("mediaImage").src = "";
-
       $("mediaImage").alt = "";
-
       $("caption").textContent = "";
-
       $("dots").innerHTML = "";
-
       $("prevWork").querySelector("span").textContent = "";
-
       $("nextWork").querySelector("span").textContent = "";
-
     };
 
     /* =============================================================
@@ -2678,44 +2652,30 @@
 
     $("imprintButton").onclick = () => {
 
-      localStorage.setItem("currentPage", "imprint");
+      $("constructionMessage").style.display = "none";
+      document.querySelector(".media-wrap").style.display = "none";
 
+      localStorage.setItem("currentPage", "imprint");
       clearSidebarActive();
 
-
-
       $("imprintButton").classList.add("active");
-
       document.body.classList.add("biography-mode");
 
       currentWork = "imprint";
-
       currentSlide = 0;
 
       const w = works.imprint;
-
       $("workTitle").textContent = "";
-
       $("workInfo").innerHTML = "";
-
       $("workDescription").innerHTML = w.description;
-
       $("workScreening").innerHTML = "";
-
       $("workCredits").innerHTML = "";
-
       $("mediaImage").src = "";
-
       $("mediaImage").alt = "";
-
       $("caption").textContent = "";
-
       $("dots").innerHTML = "";
-
       $("prevWork").querySelector("span").textContent = "";
-
       $("nextWork").querySelector("span").textContent = "";
-
     };
 
 
