@@ -44,8 +44,8 @@ button {
   padding: 0;
   cursor: pointer;
   transition: color 0.25s ease,
-              background-color 0.25s ease,
-              opacity 0.25s ease;
+    background-color 0.25s ease,
+    opacity 0.25s ease;
 }
 
 /* =========================================================
@@ -172,7 +172,7 @@ nav {
   line-height: 1.35;
   margin: 0 20px;
   transition: color 0.25s ease,
-              padding-left 0.25s ease;
+    padding-left 0.25s ease;
 }
 
 .work-link:hover {
@@ -336,7 +336,7 @@ nav {
   border-radius: 50%;
   background-color: #c6c6c6 !important;
   cursor: pointer;
-  
+
 }
 
 .dot:hover {
@@ -887,8 +887,8 @@ body.home-page .work-footer {
   }
 
   .info-title span {
-  font-size: 12px;
-}
+    font-size: 12px;
+  }
 
   .text-page-back,
   .bottom-link {
@@ -969,3 +969,24 @@ body.home-page .work-footer {
   color: #aaa !important;
   text-decoration: none !important;
 }
+
+#constructionMessage {
+  display: none;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+  padding-top: 100px;
+  padding-left: 200px;
+  animation: rainbow 4s linear infinite;
+}
+
+@keyframes rainbow {
+  0%   { color: hsl(0, 100%, 50%); }
+  16%  { color: hsl(60, 100%, 50%); }
+  33%  { color: hsl(120, 100%, 50%); }
+  50%  { color: hsl(180, 100%, 50%); }
+  66%  { color: hsl(240, 100%, 50%); }
+  83%  { color: hsl(300, 100%, 50%); }
+  100% { color: hsl(360, 100%, 50%); }
+}
+
