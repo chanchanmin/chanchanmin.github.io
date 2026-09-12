@@ -15,17 +15,22 @@
 </head>
 
 <body>
+<div class="mobile-menu-button" id="mobileMenuButton">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+ <!-- MOBILE MENU BUTTON -->
+  <div class="mobile-menu-button" id="mobileMenuButton">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <!-- =========================================================
        LEFT MENU
        =========================================================
-       To change the artist name:
-       Change "Chanmin Kim" below.
-
-       To add/remove a work:
-       1. Add a button here.
-       2. Add the matching work in the WORKS section below.
-       ========================================================= -->
 
   <aside class="sidebar">
 
@@ -458,6 +463,10 @@
   </main>
 
   <script>
+
+function $(id) {
+  return document.getElementById(id);
+}
 
     const works = {
 
@@ -2349,6 +2358,17 @@ document.body.classList.remove("biography-mode");
       }
       $("dotsAnimation").textContent = "•".repeat(dotCount);
     }, 600);
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const mobileMenuButton = $("mobileMenuButton");
+mobileMenuButton.onclick = () => {
+  document.querySelector(".sidebar").classList.toggle("mobile-open");
+};
+
+
     function renderSlide() {
 
       document.querySelector(".media-wrap").style.display = "";
