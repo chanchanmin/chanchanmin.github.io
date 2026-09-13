@@ -968,7 +968,7 @@ body.home-page .work-footer {
    MOBILE — KEEP DESKTOP LAYOUT
    ========================================================== */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1200px) {
 
   html,
   body {
