@@ -965,15 +965,16 @@ body.home-page .work-footer {
 
 
 /* ==========================================================
-   MOBILE — FIXED DESKTOP CANVAS
+   MOBILE — FIT EVERYTHING TO SCREEN
    ========================================================== */
 
 @media screen and (max-width: 700px) {
 
   html,
   body {
-    width: 1200px;
-    min-width: 1200px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -986,11 +987,11 @@ body.home-page .work-footer {
   .sidebar {
     position: fixed;
 
-    left: 30px;
-    top: 30px;
+    left: 15px;
+    top: 20px;
 
-    width: 300px;
-    height: calc(100vh - 60px);
+    width: 110px;
+    height: calc(100vh - 40px);
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -999,24 +1000,49 @@ body.home-page .work-footer {
   }
 
   nav {
-    width: 300px;
+    width: 100%;
+  }
+
+  .site-title {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .menu-main {
+    font-size: 13px;
+  }
+
+  .top-menu {
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .bottom-menu button {
+    font-size: 13px;
+  }
+
+  .work-link {
+    font-size: 11px;
+    margin: 0;
+    width: 100%;
   }
 
 
   /* =========================
-     FIXED CONTENT AREA
+     CONTENT AREA
      ========================= */
 
   .content {
     position: relative;
 
-    margin-left: 350px;
+    margin-left: 140px;
+    margin-right: 15px;
 
-    width: 850px;
-    min-width: 850px;
-    max-width: 850px;
+    width: calc(100vw - 155px);
+    min-width: 0;
+    max-width: none;
 
-    padding: 30px 0 50px 0;
+    padding: 20px 0 40px 0;
 
     overflow: hidden;
   }
@@ -1027,9 +1053,9 @@ body.home-page .work-footer {
      ========================= */
 
   .work {
-    width: 850px;
-    min-width: 850px;
-    max-width: 850px;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
 
     margin: 0;
   }
@@ -1040,14 +1066,18 @@ body.home-page .work-footer {
      ========================= */
 
   .media-wrap {
-    width: 850px;
-    max-width: 850px;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
   }
 
   .media-stage {
-    width: 850px;
-    max-width: 850px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .media-stage img {
+    max-width: 100%;
   }
 
 
@@ -1056,10 +1086,23 @@ body.home-page .work-footer {
      ========================= */
 
   .work-info {
-    width: 850px;
-    max-width: 850px;
+    width: 100%;
+    max-width: 100%;
+
     margin-left: 0;
     margin-right: 0;
+
+    overflow-wrap: break-word;
+  }
+
+  .work-info h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .work-info-line {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
 
@@ -1068,8 +1111,85 @@ body.home-page .work-footer {
      ========================= */
 
   .columns {
-    width: 850px;
-    max-width: 850px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-template-columns:
+      minmax(0, 1.7fr)
+      minmax(0, 0.65fr)
+      minmax(0, 0.65fr);
+  }
+
+  .description,
+  .credits-column,
+  .screening-column {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .description {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .credits-column,
+  .screening-column {
+    padding-right: 10px;
+  }
+
+
+  /* =========================
+     TEXT PAGE
+     ========================= */
+
+  .text-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+
+  /* =========================
+     EVENT GRID
+     ========================= */
+
+  .event-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .event-card {
+    min-width: 0;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+
+  /* =========================
+     CROSSWORD / MULTI COLUMN
+     ========================= */
+
+  .crossword-columns {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+
+  /* =========================
+     FOOTER
+     ========================= */
+
+  .work-footer {
+    width: 100%;
+    max-width: 100%;
   }
 
 }
