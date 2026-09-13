@@ -920,37 +920,6 @@ body.home-page .work-footer {
 
 
 
-/* ==========================================================
-   MOBILE
-   ========================================================== */
-
-@media (max-width: 700px) {
-
-  .columns {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .credits-column,
-  .screening-column {
-    padding-right: 20px;
-  }
-
-  .event-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .event-card {
-    padding: 14px;
-  }
-
-  .event-year {
-    font-size: 20px;
-  }
-
-}
-
 .description a {
   display: block;
   text-align: right;
