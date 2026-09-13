@@ -964,3 +964,28 @@ body.home-page .work-footer {
 }
 
 
+/* ==========================================================
+   MOBILE — KEEP DESKTOP LAYOUT
+   ========================================================== */
+
+@media screen and (max-width: 700px) {
+
+  html,
+  body {
+    min-width: 1200px;
+  }
+
+  .sidebar {
+    width: 320px;
+  }
+
+  .content {
+    min-width: 850px;
+  }
+
+  .work {
+    width: 850px;
+    max-width: none;
+  }
+
+}
