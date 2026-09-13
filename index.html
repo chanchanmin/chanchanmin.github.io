@@ -1143,9 +1143,6 @@
 
         <p>
           Chanmin Kim<br>
-          Aachener Straße 331<br>
-          50933 Cologne<br>
-          Germany
         </p>
 
         <p>
@@ -1156,8 +1153,6 @@
         <p>
           Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>
           Chanmin Kim<br>
-          Aachener Straße 331<br>
-          50933 Cologne
         </p>
 
         <p>
@@ -2088,7 +2083,7 @@
        ============================================================= */
 
     function clearSidebarActive() {
-document.body.classList.remove("biography-mode");
+      document.body.classList.remove("biography-mode");
       document.querySelectorAll(
         ".menu-main, .work-link, #upcomingButton, #biographyButton, #imprintButton"
       ).forEach(button => {
@@ -2216,9 +2211,26 @@ document.body.classList.remove("biography-mode");
 
       });
 
+
+      history.replaceState(null, "", "?work=" + encodeURIComponent(key));
+
       openWorkCategory(key);
       updateWorkFooter();
-      renderSlide();
+
+      if (["upcoming", "biography", "imprint"].includes(key)) {
+
+        $("constructionMessage").style.display = "none";
+        document.querySelector(".media-wrap").style.display = "none";
+        $("prev").style.display = "none";
+        $("next").style.display = "none";
+
+      } else {
+
+        $("prev").style.display = "";
+        $("next").style.display = "";
+
+        renderSlide();
+      }
 
       /* =============================================================
          SCREENING DROPDOWN
@@ -2256,6 +2268,16 @@ document.body.classList.remove("biography-mode");
          ========================================================= */
 
     }
+
+    const savedWork =
+      new URLSearchParams(window.location.search).get("work");
+
+    if (savedWork && works[savedWork]) {
+      renderWork(savedWork);
+    } else {
+      showHomePage();
+    }
+
 
     function positionCaption() {
       const image = $("mediaImage");
@@ -2340,7 +2362,7 @@ document.body.classList.remove("biography-mode");
       $("prev").style.display = "none";
       $("next").style.display = "none";
     }
-    showHomePage();
+
     let dotCount = 1;
     setInterval(() => {
       dotCount++;
@@ -2461,11 +2483,48 @@ document.body.classList.remove("biography-mode");
     $("next").onclick = nextSlide;
 
     /* =============================================================
-      OPEN CATEGORY OF CURRENT WORK
-      ============================================================= */
+    OPEN CATEGORY OF CURRENT WORK
+    ============================================================= */
 
     function openWorkCategory(key) {
 
+      // EVENTS
+      if (key === "upcoming") {
+        const mainButton =
+          document.querySelector('.menu-main[data-menu="events"]');
+
+        if (mainButton) {
+          mainButton.classList.add("active");
+        }
+
+        return;
+      }
+
+      // BIOGRAPHY
+      if (key === "biography") {
+        const mainButton =
+          document.querySelector('.menu-main[data-menu="texts"]');
+
+        if (mainButton) {
+          mainButton.classList.add("active");
+        }
+
+        return;
+      }
+
+      // IMPRINT
+      if (key === "imprint") {
+        const mainButton =
+          document.querySelector('.menu-main[data-menu="texts"]');
+
+        if (mainButton) {
+          mainButton.classList.add("active");
+        }
+
+        return;
+      }
+
+      // NORMAL WORKS
       const workButton =
         document.querySelector(`.work-link[data-work="${key}"]`);
 
@@ -2487,7 +2546,6 @@ document.body.classList.remove("biography-mode");
         mainButton.classList.add("active");
       }
     }
-
 
     /* =============================================================
        WORK FOOTER
@@ -2587,7 +2645,7 @@ document.body.classList.remove("biography-mode");
        ============================================================= */
 
     $("upcomingButton").onclick = () => {
-
+      history.replaceState(null, "", "?work=upcoming");
       $("constructionMessage").style.display = "none";
       document.querySelector(".media-wrap").style.display = "none";
 
@@ -2619,7 +2677,7 @@ document.body.classList.remove("biography-mode");
        ============================================================= */
 
     $("biographyButton").onclick = () => {
-
+      history.replaceState(null, "", "?work=biography");
       $("constructionMessage").style.display = "none";
       document.querySelector(".media-wrap").style.display = "none";
 
@@ -2651,7 +2709,7 @@ document.body.classList.remove("biography-mode");
        ============================================================= */
 
     $("imprintButton").onclick = () => {
-
+      history.replaceState(null, "", "?work=imprint");
       $("constructionMessage").style.display = "none";
       document.querySelector(".media-wrap").style.display = "none";
 
