@@ -140,8 +140,9 @@ nav {
   font-weight: 350;
   display: block;
   text-align: left;
-  width: 100%;
-  margin: 0 0 0;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
   font-size: 16px;
   color: #000;
   transition: color 0.25s ease;
@@ -170,8 +171,8 @@ nav {
   font-weight: 250;
   font-size: 14px;
   color: #b4b4b4;
-  display: block;
-  width: 100%;
+  display: table;
+  width: auto;
   text-align: left;
   line-height: 1.35;
   margin: 0 20px;
@@ -972,7 +973,7 @@ body.home-page .work-footer {
 
   html,
   body {
-    width: 50%;
+    width: 100%;
     min-width: 0;
     max-width: 100%;
     margin: 0;
@@ -1192,4 +1193,110 @@ body.home-page .work-footer {
     max-width: 100%;
   }
 
+}
+
+
+/* =====================================================
+   TEXTS PAGE
+   ===================================================== */
+
+.text-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 40px;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.text-page.has-selection {
+  grid-template-columns: 120px minmax(0, 1fr);
+  column-gap: 50px;
+}
+
+.text-list {
+  position: relative;
+  z-index: 100;
+  min-width: 0;
+  width: max-content;
+}
+
+.text-list-link {
+  position: relative;
+  z-index: 101;
+  display: block;
+  width: max-content;
+  padding: 0;
+  margin: 2px 0;
+  border: none;
+  background: none;
+  color: #adadad;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.text-list-link:hover {
+  color: #5049ca;
+}
+
+.text-list-link.active {
+  color: #000;
+}
+
+.text-detail {
+  min-width: 0;
+}
+
+.text-content {
+  width: 100%;
+}
+
+.text-content h1 {
+  color: #000;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 50px 0;
+}
+
+.text-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 50px;
+  width: 100%;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.text-column {
+  min-width: 0;
+}
+
+.text-body p {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2;
+  color: #000;
+  margin: 0 0 60px 0;
+  text-align: justify;
+}
+
+.text-note {
+  color: #777;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.5;
+  width: 60%;
+  margin: 0;
 }
