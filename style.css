@@ -1029,6 +1029,22 @@ body.home-page .work-footer {
     width: 100%;
   }
 
+  .text-note {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .text-note-column {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+}
 
   /* =========================
      CONTENT AREA
@@ -1299,6 +1315,13 @@ body.home-page .work-footer {
   font-size: 12px;
   font-weight: 300;
   line-height: 1.5;
-  width: 60%;
+  width: 100%;
   margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 50px;
+}
+
+.text-note-column {
+  min-width: 0;
 }
