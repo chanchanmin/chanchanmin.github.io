@@ -1301,11 +1301,4 @@ body.home-page .work-footer {
   line-height: 1.5;
   width: 100%;
   margin: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: 50px;
-}
-
-.text-note-column {
-  min-width: 0;
 }
