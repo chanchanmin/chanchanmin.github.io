@@ -1219,11 +1219,20 @@ body.home-page .work-footer {
    TEXT LIST
    ===================================================== */
 
+.text-page.has-selection {
+  grid-template-columns: 160px minmax(0, 1fr);
+  column-gap: 50px;
+  align-items: start;
+}
+
 .text-list {
-  position: relative;
+  position: sticky;
+  top: 50px;
+  align-self: start;
   z-index: 100;
-  min-width: 0;
   width: 160px;
+  height: max-content;
+  min-width: 0;
   overflow: hidden;
 }
 
