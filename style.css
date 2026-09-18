@@ -1210,15 +1210,21 @@ body.home-page .work-footer {
 }
 
 .text-page.has-selection {
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 160px minmax(0, 1fr);
   column-gap: 50px;
 }
+
+
+/* =====================================================
+   TEXT LIST
+   ===================================================== */
 
 .text-list {
   position: relative;
   z-index: 100;
   min-width: 0;
-  width: max-content;
+  width: 160px;
+  overflow: hidden;
 }
 
 .text-list-link {
@@ -1238,7 +1244,6 @@ body.home-page .work-footer {
   text-align: left;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.25s ease;
   white-space: nowrap;
 }
 
@@ -1248,8 +1253,23 @@ body.home-page .work-footer {
 
 .text-list-link.active {
   color: #000;
-  padding-left: 15px;
+  animation: textSlide 10s linear infinite;
 }
+
+@keyframes textSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(160px);
+  }
+}
+
+
+/* =====================================================
+   TEXT DETAIL
+   ===================================================== */
 
 .text-detail {
   min-width: 0;
@@ -1272,7 +1292,6 @@ body.home-page .work-footer {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 50px;
   width: 100%;
-
   font-family: "Inter", Arial, sans-serif;
   font-weight: 300;
   font-size: 14px;
@@ -1301,4 +1320,9 @@ body.home-page .work-footer {
   line-height: 1.5;
   width: 100%;
   margin: 0;
+}
+
+.center-text {
+  display: block;
+  text-align: center;
 }
