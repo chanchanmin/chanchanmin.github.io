@@ -921,7 +921,6 @@ body.home-page .work-footer {
 }
 
 
-
 .description a {
   display: block;
   text-align: right;
@@ -1334,4 +1333,25 @@ body.home-page .work-footer {
 .center-text {
   display: block;
   text-align: center;
+}
+
+.bio-screening .screening-list {
+  text-align: left !important;
+}
+
+.bio-screening .screening-list > div {
+  text-align: left !important;
+}
+
+.bio-screening .screening-list a {
+  display: inline !important;
+  text-align: left !important;
+  color: #5049ca;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.bio-screening .screening-list a:hover {
+  color: #aaa;
+  text-decoration: none;
 }
