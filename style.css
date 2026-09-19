@@ -592,19 +592,20 @@ body.biography-mode .work-info h1 {
   text-align: left;
 }
 
-.screening-list>div {
+.screening-list > div {
   position: relative;
   margin-bottom: 5px;
   padding-left: 14px;
+  line-height: 1.5;
 }
 
-.screening-list>div::before {
+.screening-list > div::before {
   content: "·";
   position: absolute;
   left: 0;
-  top: 0;
-  font-size: 20px;
-  line-height: 1.25;
+  top: -2px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .copyright {
