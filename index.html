@@ -56,7 +56,7 @@
           <!-- WORK LINK
              data-work MUST match the name in the WORKS section. -->
 
-          <button class="work-link" data-work=>
+          <button class="work-link" data-work="salvation">
             To Salvation
           </button>
 
@@ -898,7 +898,7 @@
       <div class="screening-row">
         <div class="screening-year">2021</div>
           <div class="screening-list">
-            <div>Health And Happiness, Bright Future, Predicted Success, Burning Love, @Strange Fruit Seoul, Seoul, KR​</div>
+            <div>Health and Happiness, Bright Future, Predicted Success, Burning Love, @Strange Fruit Seoul, Seoul, KR​</div>
         </div>
       </div>
 
@@ -1032,6 +1032,37 @@
     `
       },
 
+      /* ==========================================================
+         To Salvation
+         ========================================================== */
+
+      salvation: {
+
+        title: "To salvation",
+
+        meta:
+          "HD 1.85:1 | 7min | 2026 | 16mm | b&w | mono",
+        screening:
+          "",
+
+        creditsTitle:
+          "Credits",
+
+        credits:
+          "",
+
+        description:
+          "Two unforgettable moments of small salvation experienced at the 2022 Christmas Mass at Cologne Cathedral and at the Church of St. Agnes in Montepulciano, Italy.",
+
+        slides: [
+
+          ["salvation/1.jpg"],
+          ["salvation/2.jpg"],
+          ["salvation/3.jpg"],
+
+        ]
+      },
+
 
       /* ==========================================================
          I will be quiet on this bridge
@@ -1042,7 +1073,7 @@
         title: "I will be quiet on this bridge",
 
         meta:
-          "DCP 1.85:1 |  15 min | 2025 | 16mm | b&w | mono",
+          "DCP 1.85:1 | 15 min | 2025 | 16mm | b&w | mono",
         screening:
           "2026 - Otherworldly 3.0, Saint Petersburg, RU<br>" +
           "2026 - 6th EIC Festival, @Estoesparaesto, Monterrey, MX<br>" +
@@ -1062,7 +1093,7 @@
           "Supervisor / Daniel Burkhardt<br>",
 
         description:
-          "	An essay film that reflects on guilt, memory, and remorse through the aftermath of a personal incident. A river beneath a bridge, the shimmering reflections of passing boats, and a solitary walk become visual motifs that reconstruct the memory of a painful farewell. Rather than recounting the event itself, the film lingers on its emotional residue, exploring how light, landscape, and movement can embody regret. By revisiting these fragments, the work contemplates the distance between one’s own remorse and the unknowable depth of another person’s pain.",
+          "An essay film that reflects on guilt, memory, and remorse through the aftermath of a personal incident. A river beneath a bridge, the shimmering reflections of passing boats, and a solitary walk become visual motifs that reconstruct the memory of a painful farewell. Rather than recounting the event itself, the film lingers on its emotional residue, exploring how light, landscape, and movement can embody regret. By revisiting these fragments, the work contemplates the distance between one’s own remorse and the unknowable depth of another person’s pain.",
 
         slides: [
 
@@ -1088,7 +1119,7 @@
         title: "I learn, get hurt, accept, strive, fight, love, cry and laugh",
 
         meta:
-          "DCP 1.85:1 |20 min | 2025 | 16mm found footage | col | mono",
+          "DCP 1.85:1 | 20 min | 2025 | 16mm found footage | col | mono",
 
         screening:
           "2026 - Flimmerfest 2026, @HAW Hamburg, Hamburg, DE<br>" +
@@ -2177,23 +2208,9 @@
        Work order
        ============================================================= */
 
-    const workOrder = [
-      "quiet",
-      "ilearn",
-      "wasting",
-      "Dream",
-      "Dort",
-      "possible",
-      "eyes",
-      "now",
-      "journey",
-      "fallen",
-      "Native",
-      "Amen",
-      "family",
-      "sign",
-      "cinabrethe",
-    ];
+    const workOrder = Array.from(
+      document.querySelectorAll("#film .work-link")
+    ).map(button => button.dataset.work);
 
     const performanceOrder = Array.from(
       document.querySelectorAll("#performance .work-link")
