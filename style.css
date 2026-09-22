@@ -622,12 +622,12 @@ body.biography-mode .work-info h1 {
 
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 13px;
 
-  width: 100%;
-  max-width: 2000px;
-  margin-left: auto;
+  width: 70%;
+  max-width: 1700px;
+  margin-left: 0;
   margin-right: 0;
   align-items: start;
 }
