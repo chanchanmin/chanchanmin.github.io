@@ -619,24 +619,28 @@ body.biography-mode .work-info h1 {
    EVENT GRID
    ========================================================== */
 
+
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px;
-  width: 85%;
+  width: 170%;
+  max-width: 1700px;
+
   align-items: start;
+}
+
+.event-card {
+  background: #ffffff;
+  padding: 40px;
+  min-width: 0;
+  align-self: start;
 }
 
 
 /* ==========================================================
    EVENT CARD
    ========================================================== */
-
-.event-card {
-  background: #ffffff;
-  padding: 40px;
-  min-width: 0;
-}
 
 .event-card.no-image {
   display: block;
@@ -1371,8 +1375,8 @@ body.home-page .work-footer {
 body.work-detail-mode .content {
   margin-left: 350px;
   width: calc(100vw - 380px);
-  max-width: none;
-  padding: 30px 30px 60px 0;
+  max-width: 1600px;
+  padding: 80px 30px 60px 0;
 }
 
 body.work-detail-mode .work {
@@ -1393,7 +1397,7 @@ body.work-detail-mode .work-info {
   grid-row: 1 / span 2;
 
   position: sticky;
-  top: 30px;
+  top: 80px;
   align-self: start;
 
   width: 100%;
@@ -1403,6 +1407,20 @@ body.work-detail-mode .work-info {
 
   background: transparent;
   color: #444;
+
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  
+}
+
+body.work-detail-mode .work-info {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body.work-detail-mode .work-info::-webkit-scrollbar {
+  display: none;
 }
 
 body.work-detail-mode .work-info h1 {
@@ -1455,9 +1473,13 @@ body.work-detail-mode .work-gallery-item {
   position: relative;
   display: block;
   width: 100%;
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 0;
   line-height: 0;
+}
+
+body.work-detail-mode .work-gallery-item:last-child {
+  margin-bottom: 0;
 }
 
 body.work-detail-mode .work-gallery-item img {
@@ -1468,19 +1490,8 @@ body.work-detail-mode .work-gallery-item img {
   padding: 0;
 }
 
-/* Caption does not create a gap between images */
 body.work-detail-mode .work-gallery-item figcaption {
-  position: absolute;
-  right: 8px;
-  bottom: 6px;
-  margin: 0;
-  padding: 0;
-  color: #777;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.25;
-  text-align: right;
+  display: none;
 }
 
 /* Old slider is not part of ordinary work pages */
@@ -1498,7 +1509,7 @@ body.work-detail-mode .work-footer {
   grid-column: 2;
   grid-row: 2;
   width: 100%;
-  margin: 150px 0;
+  margin: 10px 0;
 }
 
 /* Keep the 1:2 ratio on narrower desktop/tablet widths. */
