@@ -592,19 +592,20 @@ body.biography-mode .work-info h1 {
   text-align: left;
 }
 
-.screening-list>div {
+.screening-list > div {
   position: relative;
   margin-bottom: 5px;
   padding-left: 14px;
+  line-height: 1.5;
 }
 
-.screening-list>div::before {
+.screening-list > div::before {
   content: "·";
   position: absolute;
   left: 0;
-  top: 0;
-  font-size: 20px;
-  line-height: 1.25;
+  top: -2px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .copyright {
@@ -921,7 +922,6 @@ body.home-page .work-footer {
 }
 
 
-
 .description a {
   display: block;
   text-align: right;
@@ -1210,15 +1210,30 @@ body.home-page .work-footer {
 }
 
 .text-page.has-selection {
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 160px minmax(0, 1fr);
   column-gap: 50px;
 }
 
+
+/* =====================================================
+   TEXT LIST
+   ===================================================== */
+
+.text-page.has-selection {
+  grid-template-columns: 160px minmax(0, 1fr);
+  column-gap: 50px;
+  align-items: start;
+}
+
 .text-list {
-  position: relative;
+  position: sticky;
+  top: 50px;
+  align-self: start;
   z-index: 100;
+  width: 160px;
+  height: max-content;
   min-width: 0;
-  width: max-content;
+  overflow: hidden;
 }
 
 .text-list-link {
@@ -1238,7 +1253,6 @@ body.home-page .work-footer {
   text-align: left;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.25s ease;
   white-space: nowrap;
 }
 
@@ -1248,8 +1262,23 @@ body.home-page .work-footer {
 
 .text-list-link.active {
   color: #000;
-  padding-left: 15px;
+  animation: textSlide 10s linear infinite;
 }
+
+@keyframes textSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(160px);
+  }
+}
+
+
+/* =====================================================
+   TEXT DETAIL
+   ===================================================== */
 
 .text-detail {
   min-width: 0;
@@ -1272,7 +1301,6 @@ body.home-page .work-footer {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: 50px;
   width: 100%;
-
   font-family: "Inter", Arial, sans-serif;
   font-weight: 300;
   font-size: 14px;
@@ -1301,4 +1329,30 @@ body.home-page .work-footer {
   line-height: 1.5;
   width: 100%;
   margin: 0;
+}
+
+.center-text {
+  display: block;
+  text-align: center;
+}
+
+.bio-screening .screening-list {
+  text-align: left !important;
+}
+
+.bio-screening .screening-list > div {
+  text-align: left !important;
+}
+
+.bio-screening .screening-list a {
+  display: inline !important;
+  text-align: left !important;
+  color: #5049ca;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.bio-screening .screening-list a:hover {
+  color: #aaa;
+  text-decoration: none;
 }
