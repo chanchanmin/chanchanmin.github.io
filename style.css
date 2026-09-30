@@ -622,10 +622,10 @@ body.biography-mode .work-info h1 {
 
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 2fr));
   gap: 13px;
 
-  width: 70%;
+  width: 140%;
   max-width: 1700px;
   margin-left: 0;
   margin-right: 0;
@@ -648,6 +648,8 @@ body.biography-mode .work-info h1 {
 .event-card.no-image {
   display: block;
 }
+
+
 
 /* ==========================================================
    EVENT TITLE
