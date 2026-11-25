@@ -616,28 +616,31 @@ body.biography-mode .work-info h1 {
 }
 
 /* ==========================================================
-   EVENT GRID
+   EVENT GRID — HORIZONTAL SCROLL
    ========================================================== */
-
 
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 2fr));
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 100px) / 3);
   gap: 13px;
-
-  width: 70%;
-  max-width: 600px;
-  margin-left: 0px;
+  width: 100%;
+  max-width: 1150px;
+  margin-left: 0;
   margin-right: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   align-items: start;
+  -webkit-overflow-scrolling: touch;
 }
-
-.event-card {
-  background: #faf8f8;
-  border: 0.05px solid #00000064;
-  padding: 40px;
-  min-width: 0;
-  align-self: start;
+.event-grid {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.event-grid::-webkit-scrollbar {
+  display: none;
 }
 
 /* ==========================================================
@@ -646,6 +649,14 @@ body.biography-mode .work-info h1 {
 
 .event-card.no-image {
   display: block;
+}
+.event-card {
+  background: #faf8f8;
+  border: 0.05px solid #00000064;
+  padding: 40px;
+  min-width: 0;
+  align-self: start;
+  scroll-snap-align: start;
 }
 
 
