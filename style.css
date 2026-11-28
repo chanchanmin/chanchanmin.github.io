@@ -622,10 +622,12 @@ body.biography-mode .work-info h1 {
 .event-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 100px) / 3);
+  /* 카드 크기 고정 */
+  grid-auto-columns: 350px;
   gap: 13px;
-  width: 100%;
-  max-width: 1150px;
+  /* 사이드 메뉴 영역 제외 */
+  width: calc(100vw - var(--sidebar-left) - 360px);
+  max-width: none;
   margin-left: 0;
   margin-right: 0;
   overflow-x: auto;
@@ -634,8 +636,9 @@ body.biography-mode .work-info h1 {
   scroll-behavior: smooth;
   align-items: start;
   -webkit-overflow-scrolling: touch;
-}
-.event-grid {
+  min-width: 0;
+  box-sizing: border-box;
+  position: relative;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -652,7 +655,7 @@ body.biography-mode .work-info h1 {
 }
 .event-card {
   background: #faf8f8;
-  border: 0.05px solid #00000064;
+  border: 0.05px solid #000000c4;
   padding: 40px;
   min-width: 0;
   align-self: start;
